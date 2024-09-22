@@ -10,3 +10,8 @@ print("Aggregated data saved to CSV.")
 
 # SQL equivalent for grouping:
 # SELECT country, AVG(Rate) FROM tourism_dataset GROUP BY country;
+
+# Identify the top 3 categories with the highest average rate
+top_categories = df.groupby('category')['Rate'].mean().nlargest(3).reset_index()
+top_categories.to_csv("SwatiShahi-test-top3.csv", index=False)
+print("Top 3 categories saved to CSV.")
