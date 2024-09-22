@@ -14,7 +14,7 @@ print("Blob service client initialized.")
 # Check if container exists, if not, create it
 container_client = blob_service_client.get_container_client(container_name)
 if not container_client.exists():
-    container_client.create_container()
+   # container_client.create_container()
     print(f"Container '{container_name}' created.")
 else:
     print(f"Container '{container_name}' already exists.")
