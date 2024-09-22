@@ -17,3 +17,14 @@ location = "westeu"
 resource_client = ResourceManagementClient(credential, subscription_id)
 compute_client = ComputeManagementClient(credential, subscription_id)
 network_client = NetworkManagementClient(credential, subscription_id)
+
+# Key variables
+vnet_name = "swatishahi"
+subnet_name = "swati_subnet"
+nic_name = "NIc-SwatiShahi"
+vm_name = "VM-SwatiShahi"
+admin_username = "azureuser"
+admin_password = "your-secure-password"
+
+# Retrieve the NIC
+nic = network_client.network_interfaces.get(resource_group_name, nic_name)
