@@ -60,3 +60,13 @@ vm_params = {
         }]
     )
 }
+
+# Deploy the VM
+async_vm_creation = compute_client.virtual_machines.begin_create_or_update(
+    resource_group_name,
+    vm_name,
+    vm_params
+)
+
+vm_result = async_vm_creation.result()  # Wait for completion
+print(f"VM {vm_name} created with ID: {vm_result.id}")
