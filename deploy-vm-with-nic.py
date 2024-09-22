@@ -28,3 +28,35 @@ admin_password = "your-secure-password"
 
 # Retrieve the NIC
 nic = network_client.network_interfaces.get(resource_group_name, nic_name)
+
+# Define VM parameters
+vm_params = {
+    'location': location,
+    'os_profile': OSProfile(
+        computer_name=vm_name,
+        admin_username=admin_username,
+        admin_password=admin_password  # You can use SSH keys instead for better security
+    ),
+    'hardware_profile': HardwareProfile(
+        vm_size='Standard_DS1_v2'  # VM size can be adjusted
+    ),
+    'storage_profile': StorageProfile(
+        image_reference=ImageReference(
+            publisher='Canonical',
+            offer='UbuntuServer',
+            sku='18.04-LTS',
+            version='latest'
+        ),
+        os_disk=OSDisk(
+            name=f'{vm_name}-osdisk',
+            caching='ReadWrite',
+            create_option='FromImage'
+        )
+    ),
+    'network_profile': NetworkProfile(
+        network_interfaces=[{
+            'id': nic.id,
+            'primary': True
+        }]
+    )
+}
