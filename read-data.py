@@ -16,3 +16,7 @@ df = pd.read_csv(io.BytesIO(csv_data))
 
 # Display first few rows
 print(df.head())
+
+# Save the DataFrame for later analysis
+df.to_csv("tourism_dataset_local.csv", index=False)
+print("Data saved locally.")

@@ -1,4 +1,5 @@
 from azure.identity import DefaultAzureCredential
+from azure.identity import InteractiveBrowserCredential
 from azure.mgmt.resource import ResourceManagementClient
 from azure.mgmt.network import NetworkManagementClient
 from azure.mgmt.compute import ComputeManagementClient
@@ -11,7 +12,8 @@ SUBSCRIPTION_ID = 'aee8556f-d2fd-4efd-a6bd-f341a90fa76e'
 RESOURCE_GROUP = 'Data_Engineer'
 
 # Authenticate using DefaultAzureCredential
-credential = DefaultAzureCredential()
+# credential = DefaultAzureCredential()
+credential = InteractiveBrowserCredential()
 
 network_client = NetworkManagementClient(credential, SUBSCRIPTION_ID)
 

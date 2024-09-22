@@ -7,7 +7,9 @@ from azure.mgmt.compute.models import (HardwareProfile, NetworkProfile,
                                        OSDisk, ImageReference)
 
 # Set up authentication
-credential = DefaultAzureCredential()
+# credential = DefaultAzureCredential()
+
+credential = InteractiveBrowserCredential()
 
 subscription_id = "aee8556f-d2fd-4efd-a6bd-f341a90fa76e"
 resource_group_name = "Data_Engineer"
